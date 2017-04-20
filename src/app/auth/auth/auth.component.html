@@ -1,0 +1,7 @@
+
+<div *ngIf="usersService.createMode; else loginMode">
+  <app-signup (onUserCreate)="userService.createMode=false"></app-signup>
+</div>
+<ng-template #loginMode>
+  <app-signin></app-signin>
+</ng-template>

@@ -1,0 +1,19 @@
+
+<div *ngIf="!usersService.isAuthenticated(); else fullApp">
+  <div class="text-center col-sm-8 col-sm-offset-2">
+    <div style="height:100px"></div>
+      <app-auth></app-auth>
+  </div>
+</div>
+<ng-template #fullApp>
+  <div id="page-wrapper" class="open" ng-cloak>
+    <app-sidebar></app-sidebar>
+    <div id="content-wrapper">
+      <div class="page-content" style="background-color:#f0f0f0">
+        <app-pageheader (onLoggingOut)="loggingOut()"></app-pageheader>
+        <!--<app-users *ngIf="menuService.currentMenuItem=='users'"></app-users>-->
+        <router-outlet></router-outlet>
+      </div>
+    </div>
+  </div>
+</ng-template>
